@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { QRCodeSVG } from "qrcode.react";
 import { X } from "lucide-react";
 
+import qrCodeImage from "../assets/qr.jpeg";
+
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -56,7 +58,7 @@ export default function PaymentModal({ isOpen, onClose, planName, amount }: Paym
         await navigator.share({
           title: 'Pay LogicScale',
           text: `Scan this QR code to pay ₹${amount} for the ${planName} plan.`,
-          url: window.location.origin + '/qr.jpeg',
+          url: window.location.origin + qrCodeImage,
         });
       } catch (err) {
         console.error('Error sharing:', err);
@@ -131,7 +133,7 @@ export default function PaymentModal({ isOpen, onClose, planName, amount }: Paym
                 {isMobile ? (
                   <div className="w-full space-y-4">
                     <div className="p-2 bg-white border-2 border-gray-100 shadow-sm rounded-xl mx-auto max-w-[200px] mb-4">
-                      <img src="/qr.jpeg" alt="PhonePe QR Code" className="w-full h-auto rounded-lg" />
+                      <img src={qrCodeImage} alt="PhonePe QR Code" className="w-full h-auto rounded-lg" />
                     </div>
                     <button
                       onClick={handleMobilePay}
@@ -157,7 +159,7 @@ export default function PaymentModal({ isOpen, onClose, planName, amount }: Paym
                 ) : (
                   <div className="flex flex-col items-center">
                     <div className="p-2 bg-white border-2 border-gray-100 shadow-sm rounded-xl">
-                      <img src="/qr.jpeg" alt="PhonePe QR Code" className="w-48 h-48 object-contain rounded-lg" />
+                      <img src={qrCodeImage} alt="PhonePe QR Code" className="w-48 h-48 object-contain rounded-lg" />
                     </div>
                     <p className="mt-4 font-medium text-gray-600">
                       Scan with PhonePe, GPay, or Paytm

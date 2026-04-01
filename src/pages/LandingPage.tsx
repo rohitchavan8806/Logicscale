@@ -7,6 +7,7 @@ import LeadMagnetModal from "../components/LeadMagnetModal";
 import screenshot1 from "../assets/screenshot-1.png";
 import screenshot2 from "../assets/screenshot-2.png";
 import video1 from "../assets/video-1.mp4";
+import testPng from "../assets/test.png";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -179,6 +180,7 @@ export default function LandingPage() {
             {/* Image 2 */}
             <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
               <img src={screenshot2} alt="Client Testimonial 2" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
+              <img src={testPng} alt="Test" className="hidden" />
             </div>
           </div>
         </div>

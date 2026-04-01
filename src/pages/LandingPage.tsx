@@ -160,7 +160,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             {/* Image 1 */}
             <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
-              <img src="/screenshot-1.jpg" alt="Client Testimonial 1" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
+              <img src="/screenshot-1.png" alt="Client Testimonial 1" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
             </div>
 
             {/* Video */}
@@ -174,7 +174,7 @@ export default function LandingPage() {
 
             {/* Image 2 */}
             <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
-              <img src="/screenshot-2.jpg" alt="Client Testimonial 2" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
+              <img src="/screenshot-2.png" alt="Client Testimonial 2" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
             </div>
           </div>
         </div>

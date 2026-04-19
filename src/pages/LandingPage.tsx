@@ -161,24 +161,28 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
             {/* Image 1 */}
-            <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
-              <img src={screenshot1} alt="Client Testimonial 1" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
+            <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg border border-gray-200 transition-transform hover:scale-[1.02] flex relative h-[500px]">
+              <img src={screenshot1} alt="Client Testimonial 1" className="w-full h-full object-contain mx-auto" />
             </div>
 
             {/* Video */}
-            <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
+            <div className="bg-black rounded-2xl overflow-hidden shadow-lg border border-gray-800 transition-transform hover:scale-[1.02] flex relative h-[500px]">
               <video 
                 src={video1} 
+                autoPlay
+                loop
+                muted
+                playsInline
                 controls 
-                className="w-full h-auto object-contain max-h-[500px] mx-auto bg-black"
+                className="w-full h-full object-contain mx-auto"
               />
             </div>
 
             {/* Image 2 */}
-            <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-transform hover:scale-[1.02]">
-              <img src={screenshot2} alt="Client Testimonial 2" className="w-full h-auto object-contain max-h-[500px] mx-auto" />
+            <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg border border-gray-200 transition-transform hover:scale-[1.02] flex relative h-[500px]">
+              <img src={screenshot2} alt="Client Testimonial 2" className="w-full h-full object-contain mx-auto" />
             </div>
           </div>
         </div>

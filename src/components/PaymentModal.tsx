@@ -29,18 +29,16 @@ export default function PaymentModal({ isOpen, onClose, planName, amount }: Paym
 
     setIsSubmitting(true);
     try {
-      const res = await fetch("/api/leads", {
+      await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, contactNumber, plan: planName, amount }),
       });
-      if (res.ok) {
-        setStep(2);
-      }
     } catch (error) {
       console.error("Error submitting lead:", error);
     } finally {
       setIsSubmitting(false);
+      setStep(2);
     }
   };
 

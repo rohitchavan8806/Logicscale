@@ -61,16 +61,14 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, contactNumber, plan: "Lead Magnet PDF", amount: 0 }),
       });
-      
-      if (res.ok) {
-        setIsSuccess(true);
-        // Trigger the download automatically using Blob approach
-        await triggerDownload();
-      }
+      // Even if res is not ok, we assume they filled it out and let them download.
+      // Cloudflare Pages may return 404 or 503 if the endpoint isn't fully propagated yet.
     } catch (error) {
       console.error("Error submitting lead:", error);
     } finally {
       setIsSubmitting(false);
+      setIsSuccess(true);
+      await triggerDownload();
     }
   };
 

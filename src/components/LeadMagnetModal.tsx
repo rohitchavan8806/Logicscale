@@ -22,32 +22,9 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
     }
   }, [isOpen]);
 
-  const triggerDownload = async () => {
-    try {
-      const response = await fetch("/pre-sales-management.pdf");
-      if (!response.ok) throw new Error("Failed to fetch PDF");
-      
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("text/html")) {
-        throw new Error("File not found, received HTML fallback instead");
-      }
-      
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "pre-sales-management.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      setTimeout(() => window.URL.revokeObjectURL(url), 1000);
-    } catch (error) {
-      console.error("Download error:", error);
-      // Fallback
-      window.open("/pre-sales-management.pdf", "_blank");
-    }
+  const triggerDownload = () => {
+    const driveUrl = "https://drive.google.com/file/d/1n2wbJUpOiPPGrXyZ3-LHfwAeEGWm0hyg/view?usp=sharing";
+    window.open(driveUrl, "_blank");
   };
 
   const handleProceed = async (e: React.FormEvent) => {
@@ -68,7 +45,7 @@ export default function LeadMagnetModal({ isOpen, onClose }: LeadMagnetModalProp
     } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
-      await triggerDownload();
+      triggerDownload();
     }
   };
 
